@@ -1,13 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+<br><br><br>
+    <div class="page-header header-filter" filter-color="purple" style="background-image: url('{{ asset('img/bg7.jpg') }}'); background-size: cover; background-position: top center; }}">
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+ <div class="col-md-7 col-md-offset-2">
+            <div class="card card-signup">
+                        <h2 class="card-title text-center">Entrar</h2>
+                        <div class="card-body">
 
-                <div class="panel-body">
+              
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
@@ -65,5 +68,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
