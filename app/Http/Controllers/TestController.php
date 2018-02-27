@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 
 class TestController extends Controller
 {
     public function welcome()
     {
-    	$a = 5;
-    	$b = 5;
-    	$c = $a + $b;
-    	return View('welcome');
+    	$products = Product::all();
+    	return View('welcome')->with(compact('products'));
     }
 }
