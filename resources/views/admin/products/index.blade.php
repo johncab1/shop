@@ -13,7 +13,7 @@
                 <h2 class="title">Listado de productos disponibles</h2>
                 <div class="team">
                     <div class="row">
-
+                    <p><a href="{{ url('/admin/products/create')}}" class="btn btn-primary btn-round">Nuevo Producto</a></p>
 
                         <table class="table">
                             <thead>
@@ -50,7 +50,7 @@
                             </tbody>
                         </table>
 
-
+                        {{ $products->links() }}
 
                     </div>
                 </div>
@@ -59,3 +59,4 @@
         </div>
     </div>
 @endsection
+
