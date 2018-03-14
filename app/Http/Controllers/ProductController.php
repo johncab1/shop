@@ -18,8 +18,19 @@ class ProductController extends Controller
     	return view('admin.products.create');
     }
 
-    public function store() // registrar el nuevo producto en la bd
+    public function store(Request $request) // registrar el nuevo producto en la bd
     {
+        //registrar el nuevo producto en la DB
+        //dd($request->all());
+
+        $product = new Product();
+        $product->name = $request->input('name');
+        $product->description = $request->input('description');
+        $product->price = $request->input('price');
+        $product->long_description = $request->input('long_description');  
+        $product->save(); //insert
+
+        return redirect('/admin/products');
 
     }
 }

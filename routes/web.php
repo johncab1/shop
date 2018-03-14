@@ -23,4 +23,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin/products', 'ProductController@index'); //listado
 Route::get('/admin/products/create', 'ProductController@create'); //crear productos
-Route::post('/admin/products', 'ProductsController@store');
+Route::post('/admin/products', 'ProductController@store');
