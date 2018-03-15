@@ -38,9 +38,9 @@
                                         <button type="button" rel="tooltip" title="Ver producto" class="btn btn-info">
                                             <i class="material-icons">info</i>
                                         </button>
-                                        <button type="button" rel="tooltip" title="Editar producto" class="btn btn-success">
+                                        <a href=" {{ url('/admin/products/'.$product->id.'/edit') }}" rel="tooltip" title="Editar producto" class="btn btn-success">
                                             <i class="material-icons">edit</i>
-                                        </button>
+                                        </a>
                                         <button type="button" rel="tooltip" title="Eliminar producto" class="btn btn-danger">
                                             <i class="material-icons">close</i>
                                         </button>

@@ -24,3 +24,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin/products', 'ProductController@index'); //listado
 Route::get('/admin/products/create', 'ProductController@create'); //crear productos
 Route::post('/admin/products', 'ProductController@store');
+
+Route::get('/admin/products/{id}/edit', 'ProductController@edit'); // vista de edición
+Route::post('admin/products/{id}/edit', 'ProductController@update'); //actualizar
