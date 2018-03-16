@@ -21,6 +21,26 @@ class ProductController extends Controller
 
     public function store(Request $request) // registrar el nuevo producto en la bd
     {
+        //validaciones
+
+        $messages = [
+            'name.required' => 'Debe ingresar un nombre para el producto.',
+            'name.min' => 'El nombre del producto debe tener al menos 3 caracteres.',
+
+            'description.required' => 'debe ingresar una descripcion para el producto',
+            'description.max' => 'El maximo de la descripcion debe ser de 200 caracteres.',
+
+            'price.required' => 'debe ingresar un precio para el producto.'
+
+        ];
+
+        $rules = [
+            'name' => 'required|min:3',
+            'description' => 'required|max:200',
+            'price' => 'required|numeric|min:0'
+        ];
+        $this->validate($request, $rules, $messages);
+
         //registrar el nuevo producto en la DB
         //dd($request->all());
 
@@ -44,6 +64,25 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
+
+        $messages = [
+            'name.required' => 'Debe ingresar un nombre para el producto.',
+            'name.min' => 'El nombre del producto debe tener al menos 3 caracteres.',
+
+            'description.required' => 'debe ingresar una descripcion para el producto',
+            'description.max' => 'El maximo de la descripcion debe ser de 200 caracteres.',
+
+            'price.required' => 'debe ingresar un precio para el producto.'
+
+        ];
+
+        $rules = [
+            'name' => 'required|min:3',
+            'description' => 'required|max:200',
+            'price' => 'required|numeric|min:0'
+        ];
+        $this->validate($request, $rules, $messages);
+        
         $product = Product::find($id);
         $product->name = $request->input('name');
         $product->description = $request->input('description');
