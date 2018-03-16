@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\ProductImage;
 
 class ProductController extends Controller
 {
@@ -50,6 +51,16 @@ class ProductController extends Controller
         $product->long_description = $request->input('long_description');  
         $product->save(); //insert
         
+        return redirect('/admin/products');
+    }
+
+
+    public function destroy($id)
+    {
+         ProductImage::where('product_id', $id)->delete();
+        $product = Product::find($id);
+        $product->delete();
+
         return redirect('/admin/products');
     }
 }

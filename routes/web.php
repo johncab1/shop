@@ -27,3 +27,5 @@ Route::post('/admin/products', 'ProductController@store');
 
 Route::get('/admin/products/{id}/edit', 'ProductController@edit'); // vista de edición
 Route::post('admin/products/{id}/edit', 'ProductController@update'); //actualizar
+
+Route::post('admin/products/{id}/delete', 'ProductController@destroy');
