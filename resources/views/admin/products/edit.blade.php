@@ -28,7 +28,7 @@
                            
                                 <div class="form-group">                        
                                     <label for="name" class="bmd-label-floating">Nombre del producto</label>
-                                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $product->name) }}">
+                                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $product->name) }} ">
                                 </div>
                             
 

@@ -52,6 +52,11 @@
 								</a>
 
 								<div class="dropdown-menu" aria-labelledby="menu">
+									@if (auth()->user()->admin)
+									<a class="dropdown-item" href="{{ url('/admin/products') }}">
+										Gestionar Productos
+									</a>
+									@endif
 									
 										<a class="dropdown-item" href="{{ route('logout') }}"
 											onclick="event.preventDefault();
