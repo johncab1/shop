@@ -32,5 +32,9 @@ Route::post('/products/{id}/edit', 'ProductController@update'); //actualizar
 
 Route::post('/products/{id}/delete', 'ProductController@destroy');
 
+Route::get('/products/{id}/images', 'ImageController@Index');
+Route::post('/products/{id}/images', 'ImageController@store');
+Route::delete('/products/{id}/images', 'ImageController@destroy');
+
 });
 
