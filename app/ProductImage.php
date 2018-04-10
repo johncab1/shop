@@ -10,4 +10,18 @@ class ProductImage extends Model
     {
     	return $this->belongsTo(Product::class);
     }
+
+    public function getUrlAttribute()
+    {
+    	if(substr($this->image, 0, 4) == "http")
+    	{
+    		return $this->image;
+    	}
+
+    	else
+    	{
+
+    	return "/images/products/". $this->image;
+    	}
+    }
 }

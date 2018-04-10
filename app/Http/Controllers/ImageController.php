@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\ProductImage;
 
 class ImageController extends Controller
 {
@@ -15,8 +16,20 @@ class ImageController extends Controller
     }
 
 
-    public function store()
+    public function store(Request $request, $id)
     {
+    	$file = $request->file('photo');
+    	$path = public_path().'/images/products';
+    	$fileName = uniqid().$file->getClientOriginalName();
+    	$file->move($path, $fileName);
+
+    	$productImage = new ProductImage();
+    	$productImage->image = $fileName;
+    	//$porductImage->featured = false;
+    	$productImage->product_id = $id;
+    	$productImage->save();
+
+    	return back();
 
     }
 

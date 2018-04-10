@@ -14,7 +14,7 @@
 
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <form method="post" action="">
+                                    <form method="post" action="" enctype="multipart/form-data">
                                         {{ csrf_field() }}
                                         <input type="file" name="photo" required="true">
                                         <button type="submit" class="btn btn-primary btn-round">Subir nueva imagen</button>
@@ -31,7 +31,7 @@
                             <div class="col-md-4">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <img src="{{ $image->image }}">
+                                    <img src="{{ $image->url }}" width="250">
                                          <button type="submit" class="btn btn-danger btn-round">Eliminar imagen</button>
                                 </div>
                             </div>
