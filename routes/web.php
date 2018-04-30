@@ -36,5 +36,10 @@ Route::get('/products/{id}/images', 'ImageController@Index');
 Route::post('/products/{id}/images', 'ImageController@store');
 Route::delete('/products/{id}/images', 'ImageController@destroy');
 
+
+//seleccionar destacado
+Route::get('/products/{id}/images/select/{image}', 'ImageController@select');
+
+
 });
 
