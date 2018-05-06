@@ -25,7 +25,7 @@
 		}
 
 	</style>
-
+	@yield('styles')
 </head>
 
 

@@ -2,6 +2,11 @@
 
 @section('body-class', 'landing-page')
 @section('title', 'Bienvenido a App Shop')
+
+@section('styles')
+
+@endsection
+
 @section('content')
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('img/examples/profile_city.jpg') }}');">
         <div class="container">
@@ -85,6 +90,11 @@
                        
                       
                     </div>
+
+                    <div class="row">
+                        {{ $products->links() }}
+                    </div>
+
                 </div>
             </div>
             <div class="section section-contacts">
