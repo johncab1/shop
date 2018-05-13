@@ -19,7 +19,7 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">#</th>
-                                    <th class="col-md-2 text-center">Nombre</th>
+                                    <th class="col-md-1 text-center">Nombre</th>
                                     <th class="col-md-3 text-center">Descripción</th>
                                     <th class="col-md-1">Categoría</th>
                                     <th class="col-md-2">Precio</th>
