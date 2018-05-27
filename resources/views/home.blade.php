@@ -35,11 +35,15 @@
         </a>
     </li>
 </ul>
+
+
 <div class="tab-content tab-space">
     <div class="tab-pane active" id="dashboard-1">
-      Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits.
-      <br><br>
-      Dramatically visualize customer directed convergence without revolutionary ROI.
+      @foreach(auth()->user()->cart->details as $detail)
+        <ul>
+            <li>{{ $detail }}</li>
+        </ul>
+      @endforeach
     </div>
 
     <div class="tab-pane" id="tasks-1">

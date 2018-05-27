@@ -52,6 +52,9 @@
 								</a>
 
 								<div class="dropdown-menu" aria-labelledby="menu">
+									
+										<a class="dropdown-item" href="{{ url('/home') }}">Dashboard</a>
+									
 									@if (auth()->user()->admin)
 									<a class="dropdown-item" href="{{ url('/admin/products') }}">
 										Gestionar Productos
