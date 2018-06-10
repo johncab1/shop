@@ -39,11 +39,53 @@
 
 <div class="tab-content tab-space">
     <div class="tab-pane active" id="dashboard-1">
-      @foreach(auth()->user()->cart->details as $detail)
-        <ul>
-            <li>{{ $detail }}</li>
-        </ul>
-      @endforeach
+          
+
+      <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="col-md-3 text-center">Nombre</th>                                                                
+                                    <th class="col-md-3 text-center">Precio</th>
+                                    <th class="col-md-3 text-center">Cantidad</th>
+                                    <th>Subtotal</th>
+                                    <th class="col-md-3 text-center">Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach(auth()->user()->cart->details as $detail)
+                                <tr>
+                                    <td class="text-center">
+                                        <img src="{{ $detail->product->featured_image_url }}" height="50">
+                                    </td>
+                                    <td>
+                                        <a href="{{ url('/products/'.$detail->product->id) }}" target="_blank">
+                                            {{ $detail->product->name }}
+                                        </a>
+                                    </td>                                                                        
+                                    <td class="text-center">${{ $detail->product->price }}</td>
+                                    <td class="text-center">{{ $detail->quantity }}</td>
+                                    <td class="text-center">${{ $detail->quantity * $detail->product->price }}</td>
+                                    <td class="td-actions text-center">
+                                        
+
+                                        <form method="post" action="{{ url('/admin/products/'.$detail->product->id.'/delete') }}">
+                                            {{ csrf_field() }}
+                                            <a href="{{ url('/products/'.$detail->product->id) }}" target="_blank" type="button" rel="tooltip" title="Ver producto" class="btn btn-info">
+                                            <i class="material-icons">info</i>
+                                        </a>
+                                      
+                                       
+
+                                            <button type="submit" rel="tooltip" title="Eliminar producto" class="btn btn-danger">
+                                                <i class="material-icons">close</i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
     </div>
 
     <div class="tab-pane" id="tasks-1">
