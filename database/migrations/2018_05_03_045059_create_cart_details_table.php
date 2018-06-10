@@ -22,7 +22,7 @@ class CreateCartDetailsTable extends Migration
 
             //clave foranea con productos
             $table->integer('product_id')->unsigned();
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
 
             $table->integer('quantity');
             $table->integer('discount')->default(0);
