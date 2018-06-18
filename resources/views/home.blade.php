@@ -17,6 +17,14 @@
                         </div>
                     @endif
 
+
+
+                    @if (session('notification'))
+                        <div class="alert alert-success">
+                            {{ session('notification') }}
+                        </div>
+                    @endif
+
                     <ul class="nav nav-pills nav-pills-icons" role="tablist">
     <!--
         color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"

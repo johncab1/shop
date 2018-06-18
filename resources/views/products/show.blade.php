@@ -9,10 +9,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 ml-auto mr-auto">
+
                         <div class="profile">
                             <div class="avatar">
                                 <img src="{{ $product->featured_image_url }}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
-                            </div>
+                            </div>                         
+
+
                             <div class="name">
                                 <h3 class="title">{{ $product->name }}</h3>
                                 <h6>{{$product->category->name }}</h6>
@@ -20,12 +23,21 @@
                                 <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-twitter"></i></a>
                                 <a href="#pablo" class="btn btn-just-icon btn-link btn-pinterest"><i class="fa fa-pinterest"></i></a>
                             </div>
+
                         </div>
                     </div>
                 </div>
                 <div class="description text-center">
                     <p>{{$product->long_description }} </p>
                 </div>
+
+
+                   @if (session('notification'))
+                                <div class="alert alert-success">
+                                {{ session('notification') }}
+                                </div>
+                            @endif
+
 
                 <div class="text-center">
                     <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAgregar">
