@@ -46,5 +46,15 @@ Route::delete('/products/{id}/images', 'ImageController@destroy');
 Route::get('/products/{id}/images/select/{image}', 'ImageController@select');
 
 
+
+Route::get('/categories', 'CategoryController@index'); //listado
+Route::get('/categories/create', 'CategoryController@create'); //crear productos
+Route::post('/categories', 'CategoryController@store');
+Route::get('/categories/{category}/edit', 'CategoryController@edit'); // vista de edición
+Route::post('/categories/{category}/edit', 'CategoryController@update'); //actualizar
+Route::post('/categories/{category}/delete', 'CategoryController@destroy');
+
+
 });
+
 
