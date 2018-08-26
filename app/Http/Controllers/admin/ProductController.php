@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\ProductImage;
 use App\Http\Controllers\Controller;
+use App\Category;
 
 class ProductController extends Controller
 {
@@ -17,7 +18,8 @@ class ProductController extends Controller
 
     public function create() //ver formulario de registro
     {
-    	return view('admin.products.create');
+        $categories = Category::orderBy('name')->get();
+    	return view('admin.products.create')->with(compact('categories'));
     }
 
     public function store(Request $request) // registrar el nuevo producto en la bd
@@ -49,7 +51,8 @@ class ProductController extends Controller
         $product->name = $request->input('name');
         $product->description = $request->input('description');
         $product->price = $request->input('price');
-        $product->long_description = $request->input('long_description');  
+        $product->long_description = $request->input('long_description');
+        $product->category_id = $request->category_id;
         $product->save(); //insert
 
         return redirect('/admin/products');
@@ -59,8 +62,9 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        $product = Product::find($id);        
-        return view('admin.products.edit')->with(compact('product')); //formulario de registro
+        $product = Product::find($id);
+        $categories = Category::orderBy('name')->get();      
+        return view('admin.products.edit')->with(compact('product', 'categories')); //formulario de registro
     }
 
     public function update(Request $request, $id)
@@ -88,7 +92,8 @@ class ProductController extends Controller
         $product->name = $request->input('name');
         $product->description = $request->input('description');
         $product->price = $request->input('price');
-        $product->long_description = $request->input('long_description');  
+        $product->long_description = $request->input('long_description');
+         $product->category_id = $request->category_id;
         $product->save(); //insert
         
         return redirect('/admin/products');
@@ -100,7 +105,6 @@ class ProductController extends Controller
          ProductImage::where('product_id', $id)->delete();
         $product = Product::find($id);
         $product->delete();
-
         return redirect('/admin/products');
     }
 }

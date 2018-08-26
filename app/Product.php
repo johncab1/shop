@@ -38,4 +38,20 @@ class Product extends Model
 
 
     }
+
+
+    public function getCategoryNameAttribute()
+    {
+        if($this->category)
+        {
+            return $this->category->name;
+        }
+
+        else
+
+        {
+            return 'general';
+        }
+    }
+
 }

@@ -49,6 +49,17 @@
                                 <textarea class="form-control" id="exampleFormControlTextarea1" id="long_description" rows="3" name="long_description">{{ old('long_description') }}</textarea>
                             </div>
 
+
+                            <div class="form-group">
+                                <label for="categoria"></label>
+                                <select class="form-control" name="category_id">
+                                    <option value="0">General</option>
+                                    @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <button class="btn btn-primary">
                                                 Registrar Producto
                                             </button>
