@@ -115,6 +115,7 @@
 	<script src="{{ asset('js/plugins/nouislider.min.js')}}"></script>
 	<!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
 	<script src="{{ asset('js/material-kit.js?v=2.0.1')}}"></script>
+	@yield('scripts')
 
 </html>
 
