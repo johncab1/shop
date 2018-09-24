@@ -51,13 +51,49 @@
                                                 </span>
                                                 <input type="text" name="email" class="form-control" placeholder="Email...">
                                                 @if ($errors->has('email'))
-                                    <span class="help-block">
+                                        <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
                                             </div>
 
                                         </div>
+
+
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">phone</i>
+                                                </span>
+                                                <input type="phone" name="phone" class="form-control" placeholder="Telefono">
+                                                @if ($errors->has('phone'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+                                @endif
+                                            </div>
+
+                                        </div>
+
+
+
+                                    <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">class</i>
+                                                </span>
+                                                <input type="text" name="address" class="form-control" placeholder="address">
+                                                @if ($errors->has('address'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                @endif
+                                            </div>
+
+                                        </div>
+
+
 
 
 
